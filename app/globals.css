@@ -11,6 +11,8 @@
   --accent-light: #333333;
   --hero-overlay: rgba(0, 0, 0, 0.25);
   --section-bg: #f0eeea;
+  /* Hero直下カード（参考画像のティール系） */
+  --hero-card-bg: #4DD0E1;
   --header-bg: #f5f2ed;
   --card-bg: #ffffff;
   --border: #d9d5cf;

@@ -7,13 +7,14 @@ import { site, nav, contact } from "@/lib/copy";
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // 表示中のコンテンツに合わせたナビ（page.tsx の表示順）
   const navLinks = [
     { href: "#about", label: nav.about },
-    { href: "#reasons", label: nav.reasons },
-    { href: "#benefits", label: nav.benefits },
-    { href: "#flow", label: nav.flow },
+    { href: "#news", label: nav.news },
+    { href: "#why", label: nav.why },
+    { href: "#director", label: nav.director },
+    { href: "#voices", label: nav.voices },
     { href: "#faq", label: nav.faq },
-    { href: "#contact", label: "お問い合わせ" },
   ];
 
   return (

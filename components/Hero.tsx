@@ -54,10 +54,10 @@ export function Hero() {
           ))}
         </div>
 
-        {/* コンテンツ: 左＝見出し、右＝CTAパネル */}
-        <div className="relative z-10 mx-auto flex min-h-[calc(85vh-5rem)] md:min-h-[calc(90vh-5rem)] max-w-7xl flex-col px-4 md:flex-row md:items-center md:justify-between md:gap-8 md:px-6 lg:px-8">
+        {/* コンテンツ: 左＝見出し、右端＝CTAパネル */}
+        <div className="relative z-10 flex min-h-[calc(85vh-5rem)] md:min-h-[calc(90vh-5rem)] w-full flex-col px-4 md:flex-row md:items-center md:px-6 lg:px-8">
           {/* 左: 見出し（画像上オーバーレイ） */}
-          <div className="flex flex-1 flex-col justify-center py-10 md:py-16 md:pr-0">
+          <div className="flex flex-1 flex-col justify-center py-10 md:py-16 md:pr-4 lg:max-w-3xl">
             <p className="mb-3 text-sm font-medium tracking-wide text-white/95 md:text-base">
               {hero.subTitle}
             </p>
@@ -76,8 +76,8 @@ export function Hero() {
             </h1>
           </div>
 
-          {/* 右: 浮きパネル（角丸・影・導入費用バナー＋診療科目ボタン） */}
-          <div className="w-full shrink-0 md:w-[380px] lg:w-[420px]">
+          {/* 右端: 浮きパネル（角丸・影・導入費用バナー＋診療科目ボタン） */}
+          <div className="w-full shrink-0 md:ml-auto md:mr-0 md:w-[360px] lg:w-[400px] xl:mr-4">
             <div className="rounded-3xl bg-white/95 p-6 shadow-xl shadow-black/15 backdrop-blur-sm md:p-8">
               <p className="rounded-full bg-[var(--primary)] py-2 text-center text-sm font-bold text-white">
                 {hero.panelNoFee}
@@ -136,20 +136,21 @@ export function Hero() {
         </div>
       </section>
 
-      {/* ヒーロー直下: 4枚の横長カード（参考画像と同じ配置） */}
+      {/* ヒーロー直下: 2行2列の4ブロック（従業員満足度向上など） */}
       <section className="bg-white px-4 py-6 md:px-6 md:py-8" aria-label="診療・福利厚生の特徴">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
             {heroCards.map((card, i) => (
               <Link
                 key={i}
                 href="#reasons"
-                className="flex flex-col justify-center rounded-2xl bg-[var(--section-bg)] px-6 py-6 text-center transition hover:bg-[var(--primary)]/15 md:px-5 md:py-6"
+                className="flex min-h-[100px] flex-col justify-center rounded-2xl px-5 py-6 text-center shadow-md transition hover:opacity-95 md:min-h-[120px] md:px-6 md:py-8"
+                style={{ backgroundColor: "#4DD0E1" }}
               >
-                <span className="text-base font-bold leading-snug text-[var(--foreground)] md:text-lg">
+                <span className="text-sm font-medium leading-snug text-white md:text-base">
                   {card.line1}
                 </span>
-                <span className="mt-1 block text-sm font-medium text-[var(--primary-dark)] md:text-base">
+                <span className="mt-2 block text-lg font-bold leading-snug text-white md:text-xl">
                   {card.line2}
                 </span>
               </Link>

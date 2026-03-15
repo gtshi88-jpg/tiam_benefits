@@ -157,7 +157,7 @@ export function AboutIntroSection() {
                           </p>
                         )}
                         <div className="flex gap-3">
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-[var(--primary-dark)] text-xs font-bold text-white">
+                          <span className="inline-flex shrink-0 items-center justify-center rounded-md bg-[var(--primary-dark)] px-3 py-2 text-xs font-bold leading-none text-white">
                             STEP {item.step}
                           </span>
                           <div className="min-w-0 flex-1">

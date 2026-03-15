@@ -17,12 +17,13 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="pb-32 md:pb-0">
         <Hero />
         <NewsSection />
         <AboutIntroSection />
@@ -42,6 +43,7 @@ export default function Home() {
       </main>
       <Footer />
       <CookieBanner />
+      <MobileCtaBar />
     </>
   );
 }

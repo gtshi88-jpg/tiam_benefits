@@ -5,10 +5,11 @@ export function Footer() {
   const navLinks = [
     { href: "#top", label: nav.top },
     { href: "#about", label: nav.about },
+    { href: "#news", label: nav.news },
     { href: "#why", label: nav.why },
+    { href: "#director", label: nav.director },
     { href: "#voices", label: nav.voices },
     { href: "#faq", label: nav.faq },
-    { href: "#news", label: nav.news },
   ];
 
   const snsLinks = [

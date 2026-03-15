@@ -19,6 +19,7 @@ export const nav = {
   benefits: "特典",
   flow: "導入の流れ",
   why: "選ばれる理由",
+  director: "理事長",
   voices: "導入企業の声",
   faq: "FAQ",
   news: "お知らせ",
@@ -34,6 +35,15 @@ export const contact = {
   lineUrl: "https://page.line.me/718awdjv",
   tel: "0362806007",
   telDisplay: "03-6280-6007",
+} as const;
+
+/** SP用固定下部CTAバー */
+export const mobileCtaBar = {
+  heading: "TIAM BENEFITの特典",
+  ctaIntroduce: "導入はこちら",
+  ctaContact: "サービスのご相談",
+  introduceHref: "https://page.line.me/718awdjv",
+  contactHref: "https://page.line.me/718awdjv",
 } as const;
 
 export const hero = {
