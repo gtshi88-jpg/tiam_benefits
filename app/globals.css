@@ -38,6 +38,14 @@ body {
   color: var(--foreground);
   font-family: var(--font-family-sans);
   position: relative;
+  overflow-x: hidden;
+  max-width: 100%;
+  overscroll-behavior-x: none;
+}
+@supports (overflow-x: clip) {
+  body {
+    overflow-x: clip;
+  }
 }
 
 body::before {
@@ -62,9 +70,17 @@ body::before {
   font-family: var(--font-family-serif-jp);
 }
 
-/* スムーススクロール */
+/* スムーススクロール & 横スクロール防止
+   overflow-x: clip は sticky を壊さず、hidden は sticky が効かなくなる */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+@supports (overflow-x: clip) {
+  html {
+    overflow-x: clip;
+  }
 }
 
 /* スクロール時フェードイン（Aboutセクション用） */
