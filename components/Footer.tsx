@@ -1,94 +1,119 @@
+"use client";
+
 import Link from "next/link";
-import { site, nav, sns } from "@/lib/copy";
+import { site, nav } from "@/lib/constants";
+import { ScrollAnimate } from "./ScrollAnimate";
+
+const SNS_LINKS = [
+  {
+    href: "https://www.instagram.com/tiam_ginza",
+    label: "Instagram Follower 2.6万+",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden>
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.youtube.com/@tiamclinicginza/videos",
+    label: "YouTube Official Channel",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden>
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.tiktok.com/@tiam_clinic",
+    label: "TikTok Official Account",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden>
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+      </svg>
+    ),
+  },
+];
 
 export function Footer() {
   const navLinks = [
-    { href: "#top", label: nav.top },
-    { href: "#about", label: nav.about },
-    { href: "#news", label: nav.news },
-    { href: "#why", label: nav.why },
-    { href: "#director", label: nav.director },
-    { href: "#voices", label: nav.voices },
-    { href: "#faq", label: nav.faq },
-  ];
-
-  const snsLinks = [
-    { href: sns.instagram, label: sns.instagramLabel },
-    { href: sns.youtube, label: sns.youtubeLabel },
-    { href: sns.tiktok, label: sns.tiktokLabel },
+    { href: "/#top", label: nav.top },
+    { href: "/#about", label: nav.about },
+    { href: "/#why", label: nav.why },
+    { href: "/#director", label: nav.director },
+    { href: "/#voices", label: nav.voices },
+    { href: "/#faq", label: nav.faq },
   ];
 
   return (
     <footer className="relative mt-0">
-      {/* 丸みを帯びた上部 */}
       <div
         className="rounded-t-[2.5rem] md:rounded-t-[3.5rem] text-white"
-        style={{
-          background:
-            "linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-light) 50%, var(--primary-dark) 100%)",
-        }}
+        style={{ background: "linear-gradient(135deg, rgba(197,165,89,0.92) 0%, rgba(180,148,72,0.92) 50%, rgba(197,165,89,0.92) 100%)", backdropFilter: "blur(20px) saturate(160%)", WebkitBackdropFilter: "blur(20px) saturate(160%)", borderTop: "1px solid rgba(255,255,255,0.2)" }}
       >
         <div className="mx-auto max-w-6xl px-4 pb-10 pt-14 md:px-6 md:pt-16">
-          {/* 上段：左ブランド / 右ナビ */}
           <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-            {/* 左：ロゴ＋キャッチ＋SNS */}
-            <div className="text-center md:text-left">
-              <p className="text-lg font-bold tracking-wide md:text-xl">
-                {site.nameEn}
+            <ScrollAnimate direction="left">
+              <div className="text-center md:text-left">
+                <p className="font-serif-en text-lg font-bold tracking-wide md:text-xl">
+                  {site.nameEn}
+                </p>
+                <p className="font-serif-jp mt-3 text-2xl font-bold leading-snug md:text-3xl">
+                  採用力と社員満足度を<br />最大化
+                </p>
+                <div className="mt-5 flex flex-wrap justify-center gap-4 md:justify-start">
+                  {SNS_LINKS.map(({ href, label, icon }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="text-white/80 transition hover:scale-110 hover:text-white"
+                    >
+                      {icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </ScrollAnimate>
+
+            <ScrollAnimate direction="right">
+              <nav aria-label="フッターナビゲーション" className="min-w-[200px]">
+                <ul className="divide-y divide-white/20">
+                  {navLinks.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="flex items-center justify-between py-3 text-sm text-white/90 transition hover:text-white hover:translate-x-1"
+                      >
+                        {label}
+                        <span className="text-white/50" aria-hidden>›</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </ScrollAnimate>
+          </div>
+
+          <ScrollAnimate delay={0.2}>
+            <div className="mt-10 flex flex-col items-center gap-4 border-t border-white/20 pt-6 md:flex-row md:justify-between">
+              <p className="text-sm text-white/60">
+                {site.copyright}
               </p>
-              <p className="mt-3 text-2xl font-bold leading-snug md:text-3xl">
-                採用力と社員満足度を<br />最大化
-              </p>
-              <div className="mt-5 flex flex-wrap justify-center gap-3 md:justify-start">
-                {snsLinks.map(({ href, label }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-white/70 underline transition hover:text-white"
-                  >
-                    {label}
-                  </a>
-                ))}
+              <div className="flex flex-wrap justify-center gap-4 text-sm">
+                <Link href="/terms" className="text-white/70 transition hover:text-white">
+                  {nav.terms}
+                </Link>
+                <Link href="/privacy" className="text-white/70 transition hover:text-white">
+                  {nav.privacy}
+                </Link>
+                <Link href="/company" className="text-white/70 transition hover:text-white">
+                  {nav.company}
+                </Link>
               </div>
             </div>
-
-            {/* 右：ナビリンク（矢印付きリスト） */}
-            <nav aria-label="フッターナビゲーション" className="min-w-[200px]">
-              <ul className="divide-y divide-white/20">
-                {navLinks.map(({ href, label }) => (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      className="flex items-center justify-between py-3 text-sm text-white/90 transition hover:text-white"
-                    >
-                      {label}
-                      <span className="text-white/50" aria-hidden>›</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-
-          {/* 下段：コピーライト＋利用規約等 */}
-          <div className="mt-10 flex flex-col items-center gap-4 border-t border-white/20 pt-6 md:flex-row md:justify-between">
-            <p className="text-sm text-white/60">
-              {site.copyright}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/terms" className="text-white/70 transition hover:text-white">
-                {nav.terms}
-              </Link>
-              <Link href="/privacy" className="text-white/70 transition hover:text-white">
-                {nav.privacy}
-              </Link>
-              <Link href="/company" className="text-white/70 transition hover:text-white">
-                {nav.company}
-              </Link>
-            </div>
-          </div>
+          </ScrollAnimate>
         </div>
       </div>
     </footer>

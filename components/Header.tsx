@@ -1,32 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { site, nav, contact } from "@/lib/copy";
+import { useState, useEffect } from "react";
+import { site, nav, contact } from "@/lib/constants";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // 表示中のコンテンツに合わせたナビ（page.tsx の表示順）
   const navLinks = [
-    { href: "#about", label: nav.about },
-    { href: "#news", label: nav.news },
-    { href: "#why", label: nav.why },
-    { href: "#director", label: nav.director },
-    { href: "#voices", label: nav.voices },
-    { href: "#faq", label: nav.faq },
+    { href: "/#about", label: nav.about },
+    { href: "/#menu", label: nav.menu },
+    { href: "/#why", label: nav.why },
+    { href: "/#voices", label: nav.voices },
+    { href: "/#faq", label: nav.faq },
   ];
 
   return (
     <header
       id="top"
-      className="fixed left-0 right-0 top-0 z-50 bg-[var(--header-bg)]"
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+        scrolled ? "header-glass" : "bg-[var(--header-bg)]/80 backdrop-blur-sm"
+      }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
         {/* 左上: TIAM / BENEFIT（2行ロゴ） */}
         <Link
-          href="#top"
-          className="font-bold tracking-wide text-[var(--primary-dark)] hover:opacity-80"
+          href="/#top"
+          className="font-serif-en font-bold tracking-wide text-[var(--primary-dark)] hover:opacity-80"
           onClick={() => setMenuOpen(false)}
         >
           <span className="block text-2xl leading-tight md:text-3xl">
@@ -37,26 +46,25 @@ export function Header() {
           </span>
         </Link>
 
-        {/* 右: 白いピル型ナビ（角丸・影） */}
-        <nav
-          className="hidden md:block"
-          aria-label="メインメニュー"
-        >
-          <div className="rounded-full bg-white px-6 py-3 shadow-sm">
-            <ul className="flex items-center gap-6 lg:gap-8">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm font-medium text-[var(--primary-dark)] transition hover:opacity-70 lg:text-base"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
+        {/* 右: リキッドグラスナビ */}
+        <div className="hidden md:flex md:items-center md:gap-4">
+          <nav aria-label="メインメニュー">
+            <div className="liquid-glass-nav">
+              <ul className="flex items-center gap-1 lg:gap-2">
+                {navLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="liquid-glass-nav-item text-sm font-medium text-[var(--primary-dark)] lg:text-base"
+                    >
+                      <span>{label}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        </div>
 
         {/* SP: ハンバーガー */}
         <button
@@ -80,7 +88,9 @@ export function Header() {
 
       {/* SP: ドロワー */}
       <div
-        className={`fixed inset-x-0 top-20 bottom-0 z-40 bg-white transition md:hidden ${menuOpen ? "visible opacity-100" : "invisible opacity-0"}`}
+        className={`fixed inset-x-0 top-20 bottom-0 z-40 bg-white/80 backdrop-blur-xl backdrop-saturate-150 transition md:hidden ${
+          menuOpen ? "visible opacity-100" : "invisible opacity-0"
+        }`}
         aria-hidden={!menuOpen}
       >
         <nav className="flex flex-col gap-1 p-6" aria-label="モバイルメニュー">
@@ -88,10 +98,10 @@ export function Header() {
             <Link
               key={href}
               href={href}
-              className="rounded-lg px-4 py-3 text-base font-medium text-[var(--primary-dark)] hover:bg-[var(--header-bg)]"
+              className="block w-full rounded-2xl border border-white/70 bg-white/95 px-4 py-3 text-base font-medium text-[var(--primary-dark)] shadow-sm"
               onClick={() => setMenuOpen(false)}
             >
-              {label}
+              <span>{label}</span>
             </Link>
           ))}
           <div className="mt-6 flex flex-col gap-3 border-t border-gray-200 pt-6">
@@ -99,14 +109,14 @@ export function Header() {
               href={contact.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-[var(--primary)] py-3 text-center font-bold text-white"
+              className="rounded-full bg-[#06C755] py-3 text-center font-bold text-white"
               onClick={() => setMenuOpen(false)}
             >
               {nav.ctaIntroduce}
             </a>
             <a
               href={`tel:${contact.tel}`}
-              className="rounded-full border-2 border-[var(--primary-dark)] py-3 text-center font-bold text-[var(--primary-dark)]"
+              className="rounded-full border-2 border-[var(--primary-dark)] bg-white py-3 text-center font-bold text-[var(--primary-dark)] shadow-sm"
               onClick={() => setMenuOpen(false)}
             >
               {nav.ctaContact}

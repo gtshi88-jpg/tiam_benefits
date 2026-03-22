@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant-garamond",
+  display: "swap",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-serif-jp",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "TIAM CLINIC 福利厚生｜採用力と社員満足度を最大化",
@@ -13,15 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="ja" className={`${cormorantGaramond.variable} ${notoSerifJP.variable}`}>
       <body className="font-sans antialiased">
         {children}
       </body>
