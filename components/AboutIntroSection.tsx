@@ -19,25 +19,25 @@ const ABOUT_INTRO = {
     verticalLabel: "About TIAM benefits",
     logoText: "TIAM BENEFITS",
     leftDescription:
-      "TIAM CLINICが提供する「TIAM BENEFITS」は、時代の変化に先駆けて誕生した、美容医療に特化した福利厚生サービスです。企業の採用力・社員満足度の向上を支援しながら、従業員一人ひとりのQOL（Quality of Life）向上を実現します。銀座のクリニックと専任サポートを組み合わせ、誰もが気軽に、安心して利用できる環境を整えています。",
-    rightHeading: "TIAMだから、\nできる。",
+      "TIAM BENEFITSは、TIAM CLINICが法人向けに用意した、美容医療に特化した福利厚生です。採用や社内満足度の訴求に使える「銀座のクリニック」を、福利厚生価格で届けます。施術のご相談から予約まで、LINEと専任スタッフが一気通貫でサポートするので、初めての方でも手続きの負担を抑えられます。",
+    rightHeading: "社員の満足度と、\n企業の採用力を、\n同じ制度で。",
     rightDescription:
-      "私たちは、美容医療をはじめとする多彩なサービスを通じて、人材定着やライフサポートに関する課題解決を支援します。従業員一人ひとりが自分らしく活躍できる環境づくりをお手伝いします。",
+      "対象施術を優待価格で利用できるほか、365日の相談やLINEでの予約で、従業員の負担を小さくします。給与を上げずに「働きがいの実感」や社内の話題づくりにつなげたい企業様の選択肢として、導入から運用まで伴走します。",
     challenges: [
-      "採用競争の激化と福利厚生の差別化",
-      "健康経営・従業員エンゲージメント向上",
-      "離職率低下・人材定着のための施策不足",
+      "福利厚生の魅力が弱く、採用・採用広報で差がつきにくい",
+      "健康経営に加え、従業員のエンゲージメントを高める施策が欲しい",
+      "離職防止・定着のために、給与以外の手を打ちたいが施策が足りない",
     ],
   },
   point02: {
     pointNumber: "02",
     verticalLabel: "Why Choose Us",
     title: "導入/運用コスト",
-    description: "月額16,500円。人数無制限で定額。給与アップよりもコスト効率が高く、社員満足度・定着率の向上に寄与します。",
+    description: "導入費用0円。人数無制限で定額。給与アップよりもコスト効率が高く、社員満足度・定着率の向上に寄与します。",
     items: [
       "人数無制限で定額・コスト一定",
       "代表者様のみのご契約でOK",
-      "社員全員が40% OFF適用",
+      "社員全員が優待価格（10〜45%OFF）で利用可能",
     ],
     linkHref: "#why",
     linkLabel: "選ばれる理由を見る",
@@ -50,8 +50,8 @@ const ABOUT_INTRO = {
     linkLabel: "特典一覧を見る",
     cards: [
       {
-        title: "社員全員が40% OFFの割引が適用",
-        description: "通常価格27,500円の施術が16,500円の優待価格(通常の40%OFF価格)で施術が可能になります。",
+        title: "社員全員が10〜45%OFFの優待価格で利用可能",
+        description: "対象施術を社員優待価格（10〜45%OFF）でご利用いただけます。割引率は施術メニュー・時期・条件により異なります。",
       },
       {
         title: "美容相談 365日対応",
@@ -62,8 +62,8 @@ const ABOUT_INTRO = {
         description: "社員様がご友人、ご家族を紹介することで16,500円分の施術チケットをお互いにプレゼントいたします。",
       },
       {
-        title: "契約時に社員様全員に16,500円分の施術チケットをプレゼント",
-        description: "ご契約で社員様全員へ16,500円分の施術チケットをプレゼントいたします。ぜひご活用ください。",
+        title: "契約時に社員様5名様分の16,500円分の施術チケットをプレゼントいたします",
+        description: "ご契約で社員様5名様分の16,500円分の施術チケットをプレゼントいたします。ぜひご活用ください。",
       },
     ],
   },
@@ -78,7 +78,7 @@ const ABOUT_INTRO = {
       { step: "01", role: "法人様", title: "最短5分でお申込み", description: "お電話やLINEにて「福利厚生を導入したい」旨をお伝えください。法人契約の手続きを行います。" },
       { step: "02", role: "法人様", title: "従業員様へ周知", description: "社員様へ向けた「福利厚生案内資料」を当院がご用意します。社内で配布・周知をお願いします。" },
       { step: "03", role: "従業員様", title: "LINEで簡単予約", description: "希望の施術を選び、LINE上で日程確定＆質問受付。専任スタッフがサポートします。" },
-      { step: "04", role: "従業員様", title: "ご来院いただき、優待価格で施術", description: "社員様が個別に予約・来院するだけ。お会計時に自動的に40%OFFが適用されます。" },
+      { step: "04", role: "従業員様", title: "ご来院いただき、優待価格で施術", description: "社員様が個別に予約・来院するだけ。お会計時に対象施術へ優待割引（10〜45%OFF）が適用されます。" },
     ],
   },
 } as const;
@@ -320,7 +320,7 @@ export function AboutIntroSection() {
                       >
                         <div className="flex justify-center">
                           <div className="benefit-icon-wrap flex h-20 w-40 shrink-0 items-center justify-center rounded-xl bg-[var(--accent-light)]/20">
-                            {i === 0 && <BenefitIcon40 />}
+                            {i === 0 && <BenefitIconDiscountRange />}
                             {i === 1 && <BenefitIcon365 />}
                             {i === 2 && <BenefitIconTicket />}
                             {i === 3 && <BenefitIconContractTicket />}
@@ -493,11 +493,11 @@ function FlowStepIcon({ step }: { step: string }) {
   return null;
 }
 
-function BenefitIcon40() {
+function BenefitIconDiscountRange() {
   return (
     <div className="flex h-16 w-36 items-center justify-center px-2" aria-hidden>
-      <div className="relative flex h-12 w-28 items-center justify-center gap-1 rounded-lg border-2 border-white bg-white/95 px-3 py-2">
-        <span className="text-lg font-bold text-[var(--primary-dark)]">40%</span>
+      <div className="relative flex h-12 w-28 items-center justify-center gap-0.5 rounded-lg border-2 border-white bg-white/95 px-2 py-2">
+        <span className="text-xs font-bold leading-tight text-[var(--primary-dark)]">10〜45%</span>
         <span className="rounded bg-[var(--primary)] px-1.5 py-0.5 text-[10px] font-bold text-white">OFF</span>
       </div>
     </div>

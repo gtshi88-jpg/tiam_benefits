@@ -15,9 +15,9 @@ const SIGNUP = {
   benefitsHeading: "TIAM BENEFITSだけの特典",
   benefitItems: [
     {
-      title: "全施術 40% OFF",
+      title: "対象施術 10〜45%OFF",
       description:
-        "通常価格の40%オフで施術が受けられます。対象施術は当院までお問い合わせください。",
+        "社員優待により、対象施術を10〜45%OFFでご利用いただけます。割引率は施術メニュー・時期・条件により異なります。詳細は当院までお問い合わせください。",
     },
     {
       title: "美容相談 365日対応",

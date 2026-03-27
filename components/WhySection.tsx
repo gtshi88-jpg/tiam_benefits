@@ -9,19 +9,19 @@ import { ScrollAnimate, StaggerContainer, StaggerItem } from "./ScrollAnimate";
 const WHY = {
   heading: "Why Choose Us",
   subLabel: "選ばれる理由",
-  lead: "月額16,500円の定額で導入完了。\n銀座のクリニックを活かし、採用力・従業員満足度の向上に寄与します。",
+  lead: "導入費用0円で導入完了。\n銀座のクリニックを活かし、採用力・従業員満足度の向上に寄与します。",
   companyCard: {
     label: "企業側のメリット",
     items: [
       "社内の人材定着の施策の1つになる",
-      "月額16,500円の定額なので社内決裁が通しやすい",
+      "導入費用0円なので社内決裁が通しやすい",
       "福利厚生が充実し採用ページで他社との差別化に役立つ",
     ],
   },
   employeeCard: {
     label: "従業員側のメリット",
     items: [
-      "全施術を40% OFFの優待価格でご利用可能",
+      "対象施術を10〜45%OFFの優待価格でご利用可能",
       "手軽なLINE予約で時短が可能",
       "ご家族も同じ優待価格でご利用可能",
     ],

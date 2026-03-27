@@ -16,15 +16,15 @@ const HERO = {
   titleMiddle: "を高める",
   titleHighlight2: "美容福利厚生",
   titleLine2: "",
-  panelNoFee: "月額16,500円の定額導入",
-  panelTitle: "社員全員が美容医療を40%OFFで施術可能",
+  panelNoFee: "導入費用0円",
+  panelTitle: "社員全員が10〜45%OFFの優待価格で施術可能",
   categories: [] as { label: string; href: string }[],
 } as const;
 
 const HERO_CARDS = [
   { line1: "従業員満足度", line2: "向上・定着率UP" },
-  { line1: "全施術", line2: "40%OFF" },
-  { line1: "定額で人数無制限", line2: "コスト一定" },
+  { line1: "対象施術", line2: "10〜45%OFF" },
+  { line1: "導入費用0円", line2: "社員全員が対象" },
   { line1: "給与UPより", line2: "コスト効率が高い" },
 ] as const;
 

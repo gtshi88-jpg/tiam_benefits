@@ -20,7 +20,7 @@ const notoSerifJP = Noto_Serif_JP({
 export const metadata: Metadata = {
   title: "TIAM CLINIC 福利厚生｜採用力と社員満足度を最大化",
   description:
-    "美容医療サブスク型福利厚生。月額16,500円の定額で社員全員が40%OFF。人数無制限・代表者様のみのご契約で、従業員満足度と定着率を高めます。",
+    "美容医療の福利厚生サービス。導入費用0円で社員全員が優待価格（10〜45%OFF）で利用可能。人数無制限・代表者様のみのご契約で、従業員満足度と定着率の向上を支援します。",
 };
 
 export default function RootLayout({
